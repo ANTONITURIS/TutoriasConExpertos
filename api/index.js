@@ -1,16 +1,54 @@
-const express = require('express')
-const morgan = require('morgan')
+const express = require("express");
+const morgan = require("morgan");
+const router = require("./src/routes/index");
+const { conn } = require("./src/models/index");
+const { PORT } = require("./src/utils/config/index");
+const app = express();
+app.use(
+  express.urlencoded({
+    extended: true,
+    limit: "50mb",
+  })
+);
 
-const router = require('./src/routes/index.js')
-const app = express()
-app.use(morgan('dev'))
-app.use('/api', router)
-
-app.get('/', (_req, res) => {
-	res.send('La ruta principal es: /api')
-})
-
-
-app.listen(4001, () => {
-	console.log('servidor listo');
+app.use(
+  express.json({
+    limit: "50mb",
+  })
+);
+app.use((_req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.header("Access-Control-Allow-Credentials", true);
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type"
+  );
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+  next();
 });
+
+
+app.use(morgan("dev"));
+app.use("/api", router);
+
+app.get("/", (_req, res) => {
+  res.send("La ruta principal es: /api");
+});
+
+app.use((err, _req, res) => {
+  const status = err.status || 500;
+  const message = err.message || err;
+  console.error(err);
+  return res.status(status).send(message);
+});
+
+conn
+  .sync({
+    force: true,
+  })
+  .then(() => {
+    console.log("DB conectada");
+    app.listen(PORT, () => {
+      console.log(`Servidor escuchando en el puerto ${PORT}`);
+    });
+  });
