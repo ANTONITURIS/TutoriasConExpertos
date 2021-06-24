@@ -15,6 +15,12 @@ const Profesores = ProfesoresFactory(sequelize);
 const Tecnologias = TecnologiasFactory(sequelize);
 const Alumnos = AlumnosFactory(sequelize);
 
+Tecnologias.hasMany(Profesores);
+Profesores.belongsTo(Tecnologias);
+Tecnologias.hasMany(Alumnos);
+Alumnos.belongsTo(Tecnologias);
+Profesores.hasMany(Alumnos)
+Alumnos.belongsTo(Profesores)
 module.exports = {
   conn: sequelize,
 };
