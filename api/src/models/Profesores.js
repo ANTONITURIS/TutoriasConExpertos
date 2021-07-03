@@ -1,7 +1,9 @@
-const { DataTypes } = require("sequelize");
+const {
+  DataTypes,
+} = require('sequelize');
 
 module.exports = (sequelize) => {
-  const model = sequelize.define("profesores", {
+  const model = sequelize.define('profesores', {
     nombre: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -14,7 +16,7 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-  },{
+  }, {
     timestamps: false,
   });
   return model;

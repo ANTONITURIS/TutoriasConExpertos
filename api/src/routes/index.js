@@ -1,6 +1,9 @@
-const router = require('express').Router()
-router.get('/', (req, res) => {
-	res.send('soy la ruta principal')
-})
+const router = require('express').Router();
+const usuarios = require('./usuarios');
 
-module.exports = router
+router.use('/usuarios', usuarios);
+router.get('/', (req, res) => {
+  res.send('soy la ruta principal');
+});
+
+module.exports = router;

@@ -5,7 +5,9 @@
     "main": "index.js",
     "scripts": {
         "dev": "nodemon -L",
+        "start": "node ./index.js",
         "test": "echo \"Error: no test specified\" && exit 1"
+        
     },
     "author": "",
     "license": "ISC",
@@ -17,6 +19,9 @@
         "sequelize": "6.6.2"
     },
     "devDependencies": {
+        "eslint": "^7.29.0",
+        "eslint-config-airbnb-base": "^14.2.1",
+        "eslint-plugin-import": "^2.23.4",
         "nodemon": "2.0.7"
     }
 }
