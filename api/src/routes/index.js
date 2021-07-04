@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const usuarios = require('./usuarios');
+const alumnos = require('./alumnos');
 
-router.use('/usuarios', usuarios);
-router.get('/', (req, res) => {
+router.use('/alumnos', alumnos);
+router.get('/', (_req, res) => {
   res.send('soy la ruta principal');
 });
 
