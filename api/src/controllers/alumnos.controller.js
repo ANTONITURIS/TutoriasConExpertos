@@ -25,7 +25,21 @@ const ObtenerAlumnos = async (_req, res) => {
   const alumnos = await Alumnos.findAll();
   return res.status(200).json(alumnos);
 };
+const ModificarAlumnos = async (req, res) => {
+  const {
+    nombre,
+
+  } = req.body;
+  const {
+    id,
+  } = req.params;
+  const alumno = await Alumnos.findByPk(id);
+  alumno.nombre = nombre;
+  await alumno.save(alumno);
+  return res.status(200).send('alumno modificado');
+};
 module.exports = {
   registrarAlumno,
   ObtenerAlumnos,
+  ModificarAlumnos,
 };
