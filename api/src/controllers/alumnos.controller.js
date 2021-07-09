@@ -2,18 +2,16 @@ const {
   Alumnos,
 } = require('../models');
 
-const registrarUsuario = async (req, res) => {
+const registrarAlumno = async (req, res) => {
   const {
-
-    nombre,
-    edad,
-    mail,
-    password,
-
+    nombre, edad, mail, password,
   } = req.body;
   try {
     await Alumnos.create({
-      nombre, edad, mail, password,
+      nombre,
+      edad,
+      mail,
+      password,
     });
     return res.status(201).send('usuario creado satisfactoriamente');
   } catch (error) {
@@ -23,6 +21,11 @@ const registrarUsuario = async (req, res) => {
     });
   }
 };
+const ObtenerAlumnos = async (_req, res) => {
+  const alumnos = await Alumnos.findAll();
+  return res.status(200).json(alumnos);
+};
 module.exports = {
-  registrarUsuario,
+  registrarAlumno,
+  ObtenerAlumnos,
 };
