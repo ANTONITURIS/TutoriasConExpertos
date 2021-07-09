@@ -31,15 +31,47 @@ const ModificarAlumnos = async (req, res) => {
 
   } = req.body;
   const {
-    id,
+    idAlumno,
   } = req.params;
-  const alumno = await Alumnos.findByPk(id);
+  const alumno = await Alumnos.findByPk(idAlumno);
   alumno.nombre = nombre;
   await alumno.save(alumno);
   return res.status(200).send('alumno modificado');
 };
+const SuspenderAlumno = async (req, res) => {
+  const {
+    idAlumno,
+  } = req.params;
+  const alumno = await Alumnos.findByPk(idAlumno);
+  alumno.suspendido = true;
+  return res.status(200).send('alumno suspendido');
+};
+const BetarAlumno = async (req, res) => {
+  const {
+    idAlumno,
+  } = req.params;
+  const alumno = await Alumnos.findByPk(idAlumno);
+  alumno.betado = true;
+  return res.status(200).send('alumno betado');
+};
+const ReadmitirAlumno = async (req, res) => {
+  const {
+    idAlumno,
+  } = req.params;
+  const alumno = await Alumnos.findByPk(idAlumno);
+  if (alumno.suspendido === true) {
+    alumno.suspendido = false;
+  } else if (alumno.betado === true) {
+    alumno.betado = false;
+  }
+  return res.status(200).send('alumno readmitido');
+};
+
 module.exports = {
   registrarAlumno,
   ObtenerAlumnos,
   ModificarAlumnos,
+  SuspenderAlumno,
+  BetarAlumno,
+  ReadmitirAlumno,
 };

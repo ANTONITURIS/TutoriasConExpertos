@@ -49,7 +49,7 @@ app.use((err, _req, res) => {
 
 conn
   .sync({
-    force: false,
+    force: true,
   })
   .then(() => {
     console.log('DB conectada');
