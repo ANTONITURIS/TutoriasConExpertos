@@ -1,6 +1,11 @@
-const router = require('express').Router()
-router.get('/', (req, res) => {
-	res.send('soy la ruta de profesores')
-})
+const router = require('express').Router();
+const {
+	registrarProfesor, ObtenerProfesores, ModificarProfesores, EliminarProfesor,
+} = require('../controllers/profesores.controller');
 
-module.exports = router
+router.post('/', registrarProfesor);
+router.get('/', ObtenerProfesores);
+router.put('/:id', ModificarProfesores);
+router.delete('/:id', EliminarProfesor);
+
+module.exports = router;
