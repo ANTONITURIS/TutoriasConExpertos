@@ -13,7 +13,7 @@ const registrarAlumno = async (req, res) => {
       mail,
       password,
     });
-    return res.status(201).send('usuario creado satisfactoriamente');
+    return res.status(201).send('Alumno creado satisfactoriamente');
   } catch (error) {
     return res.status(500).json({
       mensaje: 'error de servidor',
@@ -38,40 +38,22 @@ const ModificarAlumnos = async (req, res) => {
   await alumno.save(alumno);
   return res.status(200).send('alumno modificado');
 };
-const SuspenderAlumno = async (req, res) => {
+const EliminarAlumno = async (req, res) => {
   const {
-    idAlumno,
+    id,
   } = req.params;
-  const alumno = await Alumnos.findByPk(idAlumno);
-  alumno.suspendido = true;
-  return res.status(200).send('alumno suspendido');
-};
-const BetarAlumno = async (req, res) => {
-  const {
-    idAlumno,
-  } = req.params;
-  const alumno = await Alumnos.findByPk(idAlumno);
-  alumno.betado = true;
-  return res.status(200).send('alumno betado');
-};
-const ReadmitirAlumno = async (req, res) => {
-  const {
-    idAlumno,
-  } = req.params;
-  const alumno = await Alumnos.findByPk(idAlumno);
-  if (alumno.suspendido === true) {
-    alumno.suspendido = false;
-  } else if (alumno.betado === true) {
-    alumno.betado = false;
-  }
-  return res.status(200).send('alumno readmitido');
+  await Alumnos.destroy({
+    where: {
+      id,
+    },
+  });
+  return res.status(200).send('alumno eliminado');
 };
 
 module.exports = {
   registrarAlumno,
   ObtenerAlumnos,
   ModificarAlumnos,
-  SuspenderAlumno,
-  BetarAlumno,
-  ReadmitirAlumno,
+  EliminarAlumno,
+
 };

@@ -20,12 +20,6 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    betado: {
-      type: DataTypes.BOOLEAN,
-    },
-    suspendido: {
-      type: DataTypes.BOOLEAN,
-    },
 
   }, {
     timestamps: false,
