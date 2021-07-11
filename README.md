@@ -8,14 +8,6 @@
 
 ## Requerimientos:
 
-### Administrador:<img src="https://img.icons8.com/ios-glyphs/30/4a90e2/manager--v2.png"/>
-
-    1. modificar usuarios,eliminarlos,bloquearlos y desbloquearlos.
-    2. agregar, modificar y eliminar tecnologias.
-    3. obtener una lista de reviws de un profesor.
-    4. obtener una lista de respuestas de un profesor a un alumno.
-    5. obtener una lista de preguntas de un alumno a un profesor.
-    6. obtener una lista de los usuarios activos y bloqueados.
 
 ### Usuarios:<img src="https://img.icons8.com/ios-glyphs/30/4a90e2/user--v1.png"/>
 
