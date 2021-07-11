@@ -1,6 +1,3 @@
-/*menu amburguesa esto es el css del menu tamaño mobil,
-el menu tamaño desktop esta en Componentes/Navbar*/
-
 .App {
   width: 100vW;
   height: 100vh;
@@ -13,7 +10,7 @@ body {
 
 .Navbar {
   background-color: #dad6d634;
-  width: 100%;
+  width: 100%auto;
   height: 90px;
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
@@ -32,7 +29,7 @@ body {
 
 .Navbar .leftSide .links a {
   text-decoration: none;
-  color: rgb(255, 255, 255);
+  color: rgba(255, 255, 255, 0.945);
   font-size: 25px;
   margin-left: 10px;
 }
@@ -46,20 +43,48 @@ body {
   display: flex;
 }
 
+.Navbar .rightSide {
+  flex: 50%;
+  display: flex;
+  justify-content: right;
+  align-items: right;
+}
+
 .Navbar .rightSide a {
   text-decoration: none;
-  color: rgb(255, 255, 255);
+  color: rgb(153, 10, 172);
   font-size: 14px;
   margin: 20px;
   font-family: sans-serif;
   font-style: italic;
-  background-color: rgb(0, 0, 0);
+  background-color: rgba(255, 255, 255, 0.445);
   border-radius: 5px;
+}
+
+.Navbar .acceso a {
+  text-decoration: none;
+  color: rgb(153, 10, 172);
+  font-size: 14px;
+  margin-top: 24px;
+  font-family: sans-serif;
+  font-style: italic;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
 }
 
 @media only screen and (max-width: 776px) {
   .Navbar .rightSide a {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 776px) {
+  .Navbar .acceso a {
+    display: inline;
+    position: absolute;
+    font-size: 15px;
+    top: 10px;
+    right: 8px;
   }
 }
 
@@ -90,10 +115,9 @@ body {
   }
   .Navbar .leftSide #hidden {
     position: absolute;
-    left: 0px;
-    top: 60px;
+    top: 90px;
     height: 230px;
-    max-height: 230px;
+    max-height: 240px;
     width: 100%;
     background-color: #000000d8;
     display: flex;

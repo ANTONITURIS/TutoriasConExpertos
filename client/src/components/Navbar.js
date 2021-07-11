@@ -21,9 +21,12 @@ function Navbar() {
       </Button>
     </div>
     <div className="rightSide">
-      <Button  ><a href="Registrate">login</a></Button>
+      <Button  ><a href="Registrate">Registrate</a></Button>
       <Button  ><a href="Cursos">Cursos</a></Button>
-      <Button  ><a href="contacto">Contacto</a></Button>
+      <Button  ><a href="Contacto">Contacto</a></Button>
+      <div className="acceso">
+        <Button ><a href="Registrarse" >Ingresar</a></Button>
+      </div>
     </div>
 
   </div>
