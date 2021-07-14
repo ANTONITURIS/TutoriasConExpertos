@@ -3,6 +3,7 @@ import '../Navbar.css';
 import Reorder from '@material-ui/icons/Reorder';
 import { Button } from '@material-ui/core';
 
+
 function Navbar() {
 
 
@@ -19,14 +20,15 @@ function Navbar() {
         {" "}
         <Reorder />
       </Button>
+      <div className="acceso">
+        <Button ><a href="Registrarse" >Ingresar</a></Button>
+      </div>
     </div>
     <div className="rightSide">
       <Button  ><a href="Registrate">Registrate</a></Button>
       <Button  ><a href="Cursos">Cursos</a></Button>
       <Button  ><a href="Contacto">Contacto</a></Button>
-      <div className="acceso">
-        <Button ><a href="Registrarse" >Ingresar</a></Button>
-      </div>
+      <Button ><a href="Registrarse" >Ingresar</a></Button>
     </div>
 
   </div>
