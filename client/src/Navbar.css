@@ -37,10 +37,13 @@ body {
 .Navbar .leftSide button {
   display: none;
   margin-left: 10px;
+  margin-top: 20px;
 }
 
 .Navbar .leftSide #hidden {
   display: flex;
+  position: absolute;
+  z-index: 999999;
 }
 
 .Navbar .rightSide {
@@ -115,13 +118,14 @@ body {
   .Navbar .leftSide #hidden {
     position: absolute;
     top: 90px;
-    height: 230px;
-    max-height: 240px;
+    height: 500px;
+    max-height: 300px;
     width: 100%;
     background-color: #000000d8;
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 999999;
   }
   .Navbar .leftSide #hidden a {
     margin: 5px;

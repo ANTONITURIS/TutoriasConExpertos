@@ -1,40 +1,46 @@
 
 import React from 'react';
 import "./Navbar.css";
-import Contacto from './components/Contacto';
-import Navbar from "./components/Navbar";
 import Cursos from './components/Cursos';
-import { Tecnologias } from './components/Tecnologias';
-import Registrarse from "./components/Registrarse";
-import SignIn from "./components/SignIn";
+import Paginaprincipal from './components/Paginaprincipal';
 import { Profesores } from './components/Profesores';
+import { Estudiantes } from './components/Estudiantes';
 import { BrowserRouter as Router, Switch, Route, } from "react-router-dom"
+import Registrarse from './components/Registrarse'
 function App() {
+
   return <div className="app">
-    <Navbar />
+
     <Router>
       <Switch>
-        <Route path="/Cursos">
+        <Route exact path="/">
+          <Paginaprincipal />
+        </Route>
+        <Route exact path="/Cursos">
           <Cursos />
         </Route>
-        <Route path="/Registrate">
-          <Registrarse />
-        </Route>
-        <Route path="/Profesores">
+        <Route exact path="/Profesores">
           <Profesores />
         </Route>
-        <Route path="/Tecnologias">
-          <Tecnologias />
+        <Route exact path="/Estudiantes">
+          <Estudiantes />
         </Route>
-        <Route path="/Contacto">
-          <Contacto />
+        <Route exact path="/Tecnologias">
+          <Cursos />
+        </Route>
+        <Route exact path="/Registrate">
+          <Paginaprincipal />
         </Route>
         <Route exact path="/Registrarse">
-          <SignIn />
+          <Registrarse />
+        </Route>
+        <Route exact path="/Paginaprincipal">
+          <Paginaprincipal />
         </Route>
       </Switch>
     </Router>
   </div>
+
 }
 export default App;
 
