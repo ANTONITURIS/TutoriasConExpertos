@@ -8,7 +8,7 @@ body {
 }
 
 .Navbar {
-  background-color: #dad6d634;
+  background-color: #e9e7e734;
   width: 100%auto;
   height: 90px;
   font-family: Arial, Helvetica, sans-serif;
@@ -55,7 +55,7 @@ body {
 
 .Navbar .rightSide a {
   text-decoration: none;
-  color: rgb(153, 10, 172);
+  color: rgba(0, 0, 0, 0.822);
   font-size: 14px;
   margin: 20px;
   font-family: sans-serif;
@@ -66,12 +66,11 @@ body {
 
 .Navbar .acceso a {
   text-decoration: none;
-  color: rgb(153, 10, 172);
-  font-size: 14px;
+  color: rgb(10, 7, 10);
+  font-size: 18px;
   font-family: sans-serif;
   font-style: italic;
   background-color: rgb(255, 255, 255);
-  border-radius: 10px;
 }
 
 @media only screen and (max-width: 776px) {
@@ -84,7 +83,7 @@ body {
   .Navbar .acceso a {
     display: inline;
     position: absolute;
-    font-size: 12px;
+    font-size: 16px;
     top: 1px;
     left: 10px;
   }
@@ -121,7 +120,7 @@ body {
     height: 500px;
     max-height: 300px;
     width: 100%;
-    background-color: #000000d8;
+    background-color: #000000f6;
     display: flex;
     flex-direction: column;
     align-items: center;

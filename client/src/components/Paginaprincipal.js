@@ -16,7 +16,7 @@ const Paginaprincipal = () => {
         <Box
           fontFamily="roboto"
           fontSize="15px"
-          color="#CC0000"
+          color="#333333"
           p={2}
           position="absolute"
           top={100}
@@ -28,8 +28,8 @@ const Paginaprincipal = () => {
           </Box>
         </Grid >
         <Grid item xs={12} sm={12} md={12} >
-          <Box color="#CC0000"
-            bgcolor="#FFFF00"
+          <Box color="#333333"
+            bgcolor="#CCCCCC"
             p={2}
             borderRadius='10px'
             textAlign={'left'}
@@ -44,7 +44,7 @@ const Paginaprincipal = () => {
         <Grid item xs={12} sm={6} md={6} >
 
           <Box color="#CC0000"
-            bgcolor="#97FF97"
+            bgcolor="#92AD85"
             p={2}
             borderRadius='10px'
             textAlign={'left'}
@@ -55,7 +55,7 @@ const Paginaprincipal = () => {
             <Button href="Estudiantes">
               quiero aprender!!
               registrate como alumno</Button>
-          </Box> <Box color="#CC0000"
+          </Box> <Box color="#333333"
             bgcolor="#92AD85"
 
             p={1}
@@ -86,7 +86,7 @@ const Paginaprincipal = () => {
               quiero enseñar!!
               Registrate como profesor</Button>
           </Box> <Box color="#CC0000"
-            bgcolor="#92AD85"
+            bgcolor="#FFBD5C"
 
             p={1}
             borderRadius='10px'

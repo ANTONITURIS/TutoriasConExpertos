@@ -11,9 +11,8 @@ function Navbar() {
       <div className="links" id={showLinks ? "hidden" : " "}>
         <Button ><a href="Cursos">Cursos</a></Button>
         <Button><a href="Registrate" >Registrate</a></Button>
-        <Button><a href="Tecnologias">Tecnologias</a></Button>
       </div>
-      <Button color="primary" onClick={() => setShowLinks(!showLinks)}>
+      <Button color="secondary" onClick={() => setShowLinks(!showLinks)}>
         {" "}
         <Reorder />
       </Button>
@@ -22,7 +21,6 @@ function Navbar() {
       </div>
     </div>
     <div className="rightSide">
-      <Button  ><a href="Registrate">Registrate</a></Button>
       <Button  ><a href="Cursos">Cursos</a></Button>
       <Button ><a href="Registrarse" >Ingresar</a></Button>
       <Button ><a href="Paginaprincipal" >home</a></Button>
