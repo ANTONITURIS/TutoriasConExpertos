@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 const express = require('express');
-const morgan = require('morgan');
+const defaultDb = require('./src/utils/config/defaultDb');
 const router = require('./src/routes/index');
 const {
   conn,
@@ -32,8 +32,6 @@ app.use((_req, res, next) => {
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
   next();
 });
-
-app.use(morgan('dev'));
 app.use('/api', router);
 
 app.get('/', (_req, res) => {
@@ -49,10 +47,11 @@ app.use((err, _req, res) => {
 
 conn
   .sync({
-    force: false,
+    force: true,
   })
   .then(() => {
     console.log('DB conectada');
+    defaultDb();
     app.listen(PORT, () => {
       console.log(`Servidor escuchando en el puerto ${PORT}`);
     });

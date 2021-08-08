@@ -3,7 +3,7 @@ const {
 } = require('sequelize');
 
 module.exports = (sequelize) => {
-  const model = sequelize.define('profesores', {
+  const model = sequelize.define('usuarios', {
     nombre: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -14,6 +14,14 @@ module.exports = (sequelize) => {
     },
     mail: {
       type: DataTypes.STRING,
+      allowNull: false,
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    tipo: {
+      type: DataTypes.ENUM(['alumno', 'profesor']),
       allowNull: false,
     },
   }, {

@@ -1,11 +1,10 @@
 const {
   Sequelize,
 } = require('sequelize');
-
-const ProfesoresFactory = require('./Profesores');
+const bcrypt = require('bcrypt');
 const TecnologiasFactory = require('./Tecnologias');
-const AlumnosFactory = require('./Alumnos');
-
+const UsuariosFactory = require('./Usuarios');
+const ComentariosFactory = require('./Comentarios');
 const {
   dbUser, dbName, dbHost, dbPassword,
 } = require('../utils/config/index');
@@ -16,20 +15,37 @@ const sequelize = new Sequelize(
     logging: false,
   },
 );
-const Profesores = ProfesoresFactory(sequelize);
-const Tecnologias = TecnologiasFactory(sequelize);
-const Alumnos = AlumnosFactory(sequelize);
 
-Tecnologias.hasMany(Profesores);
-Profesores.belongsTo(Tecnologias);
-Tecnologias.hasMany(Alumnos);
-Alumnos.belongsTo(Tecnologias);
-Profesores.hasMany(Alumnos);
-Alumnos.belongsTo(Profesores);
+const Tecnologias = TecnologiasFactory(sequelize);
+const Usuarios = UsuariosFactory(sequelize);
+const Comentarios = ComentariosFactory(sequelize);
+
+Usuarios.encryptPassword = async (password) => {
+  const salt = await bcrypt.genSalt(10);
+  /* eslint-disable */
+  return await bcrypt.hash(password, salt);
+};
+Usuarios.comparepassword = async (
+  password,
+  recivedPassword,
+
+) => {
+
+  return await bcrypt.compare(password, recivedPassword)
+};
+/* eslint-enable */
+Usuarios.hasMany(Comentarios);
+Comentarios.belongsTo(Usuarios);
+Tecnologias.hasMany(Comentarios);
+Comentarios.belongsTo(Tecnologias);
+Tecnologias.hasMany(Usuarios);
+Usuarios.belongsTo(Tecnologias);
+
 module.exports = {
 
   conn: sequelize,
-  Alumnos,
-  Profesores,
+  Usuarios,
+
   Tecnologias,
+  Comentarios,
 };

@@ -1,6 +1,14 @@
-const router = require('express').Router()
-router.get('/', (req, res) => {
-	res.send('soy la ruta de tecnologias')
-})
+/* eslint-disable */
+const router = require('express').Router();
+const { CrearTecnologia, ModificarTecnologia, ObtenerTecnologias } = require("../controllers/tecnologias.controllers")
 
-module.exports = router
+router.post('/', CrearTecnologia)
+router.put('/:id', ModificarTecnologia)
+router.get('/', ObtenerTecnologias)
+
+router.get('/', (_req, res) => {
+	res.send('soy la ruta de tecnologias');
+});
+
+
+module.exports = router;
