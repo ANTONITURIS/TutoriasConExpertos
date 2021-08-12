@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const config = require('../utils/config/index');
 const {
   Usuarios,
-} = require('../models');
+} = require('../models/index');
 const {
   Tecnologias,
 } = require('../models/index');
@@ -61,7 +61,7 @@ const loginUsuario = async (req, res) => {
     mail, password,
   } = req.body;
 
-  if (mail === '' && password === '') {
+  if (!mail && mail === '' && !password && password === '') {
     return res.send('campos obligatorios');
   }
 

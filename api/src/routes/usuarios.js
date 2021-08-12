@@ -7,7 +7,7 @@ const {
 } = require('../controllers/usuarios.controller');
 
 router.post('/', registrarUsuario);
-router.get('/login', loginUsuario);
+router.post('/login', loginUsuario);
 router.put('/:id', verificarToken, ModificarUsuarios);
 router.get('/', ObtenerUsuarios);
 router.get('/:id', ObtenerUsuariosId);

@@ -17,12 +17,12 @@ function Navbar() {
         <Reorder />
       </Button>
       <div className="acceso">
-        <Button ><a href="Registrarse" >login</a></Button>
+        <Button ><a href="Login" >login</a></Button>
       </div>
     </div>
     <div className="rightSide">
       <Button  ><a href="Cursos">Cursos</a></Button>
-      <Button ><a href="Registrarse" >Ingresar</a></Button>
+      <Button ><a href="Login" >Ingresar</a></Button>
       <Button ><a href="Paginaprincipal" >home</a></Button>
     </div>
 

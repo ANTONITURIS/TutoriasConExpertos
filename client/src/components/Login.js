@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -10,8 +10,8 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Navbar from './Navbar'
-
-
+import swal from 'sweetalert';
+import axios from 'axios'
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -34,6 +34,62 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUp() {
   const classes = useStyles();
+  const [submit, setSubmit] = useState(false);
+  const [form, setForm] = useState({
+    mail: '', password: '',
+  });
+  const [errors, setErrors] = useState({
+    mail: false, password: false, number: false, empty: false,
+  });
+  useEffect(() => {
+    setErrors({ ...errors, empty: !errors.mail && !errors.password });
+  }, [submit]);
+
+  const handleInputChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+
+
+
+    if (e.target.name === 'password') {
+      setErrors(e.target.value !== '' ? { ...errors, password: false } : { ...errors, password: true });
+    }
+    if (e.target.name === 'mail') {
+      const reg = new RegExp('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$');
+      setErrors({ ...errors, mail: !reg.test(form.mail) });
+    }
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmit(true);
+
+
+
+    console.log(form.mail);
+    document.getElementById('formUserCreate').reset()
+    axios.post("http://localhost:3001/api/usuarios/login", {
+
+
+      mail: form.mail,
+      password: form.password,
+
+
+    })
+
+      .then((res) => {
+        let tokenUserLoged = res.token;
+        console.log(res.data.token);
+        swal('Exito', 'Bienvenido', 'success')
+      })
+
+      //.then(() => window.history.back())
+      .catch((err) => {
+
+        swal('Error', 'Se produjo un error inesperado. Por favor, intente nuevamente', 'error')
+      });
+
+
+  };
+
 
   return (
     <>
@@ -48,7 +104,7 @@ export default function SignUp() {
           <Typography component="h1" variant="h5">
 
           </Typography>
-          <form className={classes.form} noValidate>
+          <form className={classes.form} id="formUserCreate" onSubmit={handleSubmit} >
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
               </Grid>
@@ -57,10 +113,11 @@ export default function SignUp() {
                   variant="outlined"
                   required
                   fullWidth
-                  id="email"
+                  id="mail"
                   label="Email"
-                  name="email"
-                  autoComplete="email"
+                  name="mail"
+                  autoComplete="mail"
+                  onChange={handleInputChange}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -73,6 +130,7 @@ export default function SignUp() {
                   type="password"
                   id="password"
                   autoComplete="current-password"
+                  onChange={handleInputChange}
                 />
               </Grid>
 
@@ -84,7 +142,7 @@ export default function SignUp() {
               color="primary"
               className={classes.submit}
             >
-              Sign Up
+              ingresar
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>

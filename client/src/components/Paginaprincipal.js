@@ -6,6 +6,7 @@ import aprender from './Assets/Img/aprender.jpg'
 import profemadera from './Assets/Img/profemadera.jpg'
 import '@fontsource/roboto';
 import Navbar from './Navbar';
+import Footer from './Footer'
 
 
 const Paginaprincipal = () => {
@@ -52,7 +53,7 @@ const Paginaprincipal = () => {
             fontFamily={'roboto'}
             margin="10px"
           >
-            <Button href="Estudiantes">
+            <Button href="Usuario">
               quiero aprender!!
               registrate como alumno</Button>
           </Box> <Box color="#333333"
@@ -82,7 +83,7 @@ const Paginaprincipal = () => {
             fontFamily={'roboto'}
             margin="10px"
           >
-            <Button href="Profesores">
+            <Button href="Usuario">
               quiero enseñar!!
               Registrate como profesor</Button>
           </Box> <Box color="#CC0000"
@@ -103,7 +104,7 @@ const Paginaprincipal = () => {
 
           </Box>
         </Grid>
-
+        <Footer />
       </Grid>
 
     </div >

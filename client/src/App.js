@@ -3,10 +3,10 @@ import React from 'react';
 import "./Navbar.css";
 import Cursos from './components/Cursos';
 import Paginaprincipal from './components/Paginaprincipal';
-import { Profesores } from './components/Profesores';
-import { Estudiantes } from './components/Estudiantes';
+
+import { Usuario } from './components/Usuario';
 import { BrowserRouter as Router, Switch, Route, } from "react-router-dom"
-import Registrarse from './components/Registrarse'
+import Login from './components/Login'
 function App() {
 
   return <div className="app">
@@ -19,11 +19,8 @@ function App() {
         <Route exact path="/Cursos">
           <Cursos />
         </Route>
-        <Route exact path="/Profesores">
-          <Profesores />
-        </Route>
-        <Route exact path="/Estudiantes">
-          <Estudiantes />
+        <Route exact path="/Usuario">
+          <Usuario />
         </Route>
         <Route exact path="/Tecnologias">
           <Cursos />
@@ -31,8 +28,8 @@ function App() {
         <Route exact path="/Registrate">
           <Paginaprincipal />
         </Route>
-        <Route exact path="/Registrarse">
-          <Registrarse />
+        <Route exact path="/Login">
+          <Login />
         </Route>
         <Route exact path="/Paginaprincipal">
           <Paginaprincipal />

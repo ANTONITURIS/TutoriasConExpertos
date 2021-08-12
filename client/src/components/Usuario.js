@@ -1,16 +1,12 @@
 import React from 'react'
 import { Box, Grid, } from '@material-ui/core';
 import Navbar from './Navbar';
-import Registroprofesores from './Registroprofesores'
+import RegistrarUsuario from './registrarUsuario';
 
-
-
-
-export const Profesores = () => {
+export const Usuario = () => {
   return (
     <> <Navbar />
       < Grid container>
-
         <Grid item xs={12} sm={12} md={12} >
           <Box color="#F0FFFF"
             bgcolor="#FF6347"
@@ -19,11 +15,11 @@ export const Profesores = () => {
             textAlign={'left'}
             fontSize={30} m={1}
             fontFamily={'roboto'}
-            margin="10px">rellena todos los campos para registrarte como profesor/a. Elige la tecnologia que quieras enseñar</Box>
+            margin="10px">hola !! rellena todos los campos para registrarte</Box>
         </Grid>
 
       </Grid>
-      <Registroprofesores />
+      <RegistrarUsuario />
     </>
   )
 }
