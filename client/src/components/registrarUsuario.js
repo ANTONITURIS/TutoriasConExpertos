@@ -9,9 +9,10 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-
 import swal from 'sweetalert';
 import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux';
+import { getTecnologias } from '../redux/actions/actions';
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -33,6 +34,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignUp() {
+  const tecnologias = useSelector((state) => state.getTecnologias);
+  const dispatch = useDispatch();
+  console.log(tecnologias);
   const classes = useStyles();
   const [submit, setSubmit] = useState(false);
   const [form, setForm] = useState({
@@ -44,7 +48,9 @@ export default function SignUp() {
   useEffect(() => {
     setErrors({ ...errors, empty: !errors.mail && !errors.password });
   }, [submit]);
-
+  useEffect(() => {
+    dispatch(getTecnologias());
+  }, []);
   const handleInputChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
 
